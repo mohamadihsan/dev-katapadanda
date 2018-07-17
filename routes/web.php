@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('web_katapanda');
-});
+// Route::get('/', function () {
+//     return view('web_katapanda');
+// });
+
+Route::get('/', 'Frontend\MainController@index')->name('web_katapanda');
