@@ -225,8 +225,7 @@ body {
 .navbar-default {
   transition: all 0.6s ease;
 	border-color: transparent;
-  /*background-color: transparent;*/
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 
 .navbar-default .navbar-toggle {
@@ -265,7 +264,7 @@ body {
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #666666;
+  color: #000000;
   font-weight:700;
   -webkit-transition: all 0.5s;
 	-moz-transition: all 0.5;
@@ -274,7 +273,7 @@ body {
 
 .navbar-default .navbar-nav > li > a:hover {
   /*color: #000000;*/
-  color: #79a63f;
+  color: #FFFFFF;
 }
 
 .navbar-default .navbar-nav > .active > a {

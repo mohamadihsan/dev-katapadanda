@@ -8,12 +8,19 @@
     
     {{-- SETTING BANNER IMAGE --}}
     <style type="text/css">
-      .banner{
+      .sans-banner{
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)), url("/assets_frontend/images/{{ $banners[0]->banner_img_var }}");
       }
 
       .sans-padding {
         padding: 10%;
+      }
+
+      .sans-nvabar-color{
+        /*background-color: #FFFFFF;*/
+        background: #FFFFFF; 
+        /*background: linear-gradient(to left, rgba(121,166,63,0), rgba(121,166,0,1));*/
+        background: linear-gradient(to right, rgba(255,255,255,0), rgba(121,166,62,0.8));
       }
     </style>
 
@@ -22,7 +29,7 @@
       data-animsition-out-class="fade-out"
       data-animsition-out-duration="1000">
         <div class="container">
-          <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+          <nav class="navbar navbar-default navbar-fixed-top sans-nvabar-color" role="navigation">
           <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header page-scroll">
@@ -54,7 +61,7 @@
       </div><!-- /.container-fluid -->
 
     <div class="main" id="main"><!-- Main Section-->
-      <div class="hero-section app-hero banner">
+      <div class="hero-section app-hero sans-banner">
         <div class="container">
           <div class="hero-content app-hero-content text-center">
             <div class="col-md-10 col-md-offset-1 sans-padding">
