@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
+use App\Frontend_Models\Banners;
+use App\Frontend_Models\Logos;
 use App\Frontend_Models\Menus;
+use App\Frontend_Models\Service_Pages;
+use App\Frontend_Models\Service_Page_Details;
 use App\Frontend_Models\Setting_Languages;
 
 class MainController extends Controller
@@ -20,12 +24,33 @@ class MainController extends Controller
         	$language = $lang['language_name_var'];
         }
 
+        // Banner
+    	$where  = ['active_boo' => TRUE];
+        $banners = Banners::where($where)->limit(1)->get();
+
+        // Logo
+    	$where  = ['active_boo' => TRUE];
+        $logos = Logos::select('logo_img_var')->where($where)->limit(1)->get();
+
     	// List Menu TopBar
     	$where  = ['active_boo' => TRUE, 'language_var' => $language];
         $list_menus = Menus::where($where)->get();
+
+    	// Content Menu Service / Layanan
+    	$where  = ['active_boo' => TRUE, 'language_var' => $language];
+        $service_pages = Service_Pages::where($where)->get();
+
+        // Detail Menu Service / Layanan
+    	$where  = ['active_boo' => TRUE, 'language_var' => $language];
+        $service_page_details = Service_Page_Details::where($where)->get();
         
         return view('frontend_modules.index_frontend', compact(
-        	'list_menus'
+        	'banners',
+        	'banner_details',
+        	'list_menus',
+        	'logos',
+        	'service_pages',
+        	'service_page_details'
         ));
     }
 }

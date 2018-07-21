@@ -5,6 +5,17 @@
 @endsection
 
 @section('content')
+    
+    {{-- SETTING BANNER IMAGE --}}
+    <style type="text/css">
+      .banner{
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)), url("/assets_frontend/images/{{ $banners[0]->banner_img_var }}");
+      }
+
+      .sans-padding {
+        padding: 10%;
+      }
+    </style>
 
     <div class="wrapper animsition" data-animsition-in-class="fade-in"
       data-animsition-in-duration="1000"
@@ -21,7 +32,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-              <a class="navbar-brand page-scroll" href="#main"><img src="{{ asset('assets_frontend/logos/logo.png') }}" alt="Mash Able Logo" /></a>
+              <a class="navbar-brand page-scroll" href="#main"><img src="{{ asset('assets_frontend/logos/'.$logos[0]->logo_img_var.'') }}" alt="Mash Able Logo" /></a>
               </div>
               
               <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
@@ -43,16 +54,16 @@
       </div><!-- /.container-fluid -->
 
     <div class="main" id="main"><!-- Main Section-->
-      <div class="hero-section app-hero">
+      <div class="hero-section app-hero banner">
         <div class="container">
           <div class="hero-content app-hero-content text-center">
-            <div class="col-md-10 col-md-offset-1 nopadding">
-                <h1 class="wow fadeInUp" data-wow-delay="0s">Katapanda Profile Support by Bootstrap 4</h1>
+            <div class="col-md-10 col-md-offset-1 sans-padding">
+                <h1 class="wow fadeInUp" data-wow-delay="0s">{{ $banners[0]->title_var }}</h1>
                 <p class="wow fadeInUp" data-wow-delay="0.2s">
-                  First ever Bootstrap 4 admin template with Flat UI Interface. <br class="hidden-xs"> Its best choice for your any complex project.
+                    {!! $banners[0]->subtitle_txt !!}
                 </p>
-                <a class="btn btn-primary btn-action" data-wow-delay="0.2s" href="#">Live Preview</a>
-				<a class="btn btn-primary btn-action" data-wow-delay="0.2s" href="#">Buy Now</a>
+                <a class="btn btn-success btn-action" data-wow-delay="0.2s" href="#">Konsultasikan dengan Kami</a>
+				        {{-- <a class="btn btn-primary btn-action" data-wow-delay="0.2s" href="#">Buy Now</a> --}}
             </div>
           <div class="col-md-12">
             <div class="hero-image">
@@ -63,55 +74,78 @@
       </div>
     </div>
 
-      <div class="services-section text-center" id="services"><!-- Services section (small) with icons -->
-        <div class="container">
-          <div class="col-md-8 col-md-offset-2 nopadding">
-          <div class="services-content">
-            <h1 class="wow fadeInUp" data-wow-delay="0s">We take care our products for more feature rich</h1>
+    <div class="services-section text-center" id="services"><!-- Services section (small) with icons -->
+      <div class="container">
+        <div class="col-md-8 col-md-offset-2 nopadding">
+        <div class="services-content">
+         
+          @foreach($service_pages as $service)
+            <h1 class="wow fadeInUp" data-wow-delay="0s">
+              {{ $service->title_var }}
+            </h1>
             <p class="wow fadeInUp" data-wow-delay="0.2s">
-              Mash Able is one of the finest Admin dashboard template in its category. Premium admin dashboard with high end feature rich possibilities.
-            </p>
-          </div>
+            {!! $service->subtitle_txt !!}
+          </p>
+          @endforeach
+          
         </div>
-          <div class="col-md-12 text-center">
-          <div class="services">
+      </div>
+        <div class="col-md-12 text-center">
+        <div class="services">
+
+          @foreach($service_page_details as $service_detail)
+
             <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.2s">
               <div class="services-icon">
-                <img src="{{ asset('assets_frontend/logos/icon1.png') }}" height="60" width="60" alt="Service" />
+                <img src="{{ asset('assets_frontend/logos/'.$service_detail->service_icon_var.'') }}" height="60" width="60" alt="Service" />
               </div>
               <div class="services-description">
-                <h1>Mega feature rich</h1>
+                <h1>{{ $service_detail->service_name_var }}</h1>
                 <p>
-                  Mash Able is one of unique dashboard template which come with tons of ready to use feature. We continuous working on it to provide latest updates in digital market.
+                  {!! $service_detail->service_desc_txt !!}
                 </p>
               </div>
             </div>
-            <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
-              <div class="services-icon">
-                <img class="icon-2" src="{{ asset('assets_frontend/logos/icon2.png') }}" height="60" width="60" alt="Service" />
-              </div>
-              <div class="services-description">
-                <h1>Fast and Robust</h1>
-                <p>
-                  We are contantly working on Mash Able and improve its performance too. Your definitely give higher rating to Mash Able for its performance.
-                </p>
-              </div>
+
+          @endforeach
+
+          {{-- <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="services-icon">
+              <img src="{{ asset('assets_frontend/logos/icon1.png') }}" height="60" width="60" alt="Service" />
             </div>
-            <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.4s">
-              <div class="services-icon">
-                <img class="icon-3" src="{{ asset('assets_frontend/logos/icon3.png') }}" height="60" width="60" alt="Service" />
-              </div>
-              <div class="services-description">
-                <h1>FLAT UI-Interface</h1>
-                <p>
-                  Mash able is first ever admin dashboard template which release in Bootstrap 4 framework. Intuitive feature rich design concept and color combination.
-                </p>
-              </div>
+            <div class="services-description">
+              <h1>Mega feature rich</h1>
+              <p>
+                Mash Able is one of unique dashboard template which come with tons of ready to use feature. We continuous working on it to provide latest updates in digital market.
+              </p>
             </div>
           </div>
+          <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="services-icon">
+              <img class="icon-2" src="{{ asset('assets_frontend/logos/icon2.png') }}" height="60" width="60" alt="Service" />
+            </div>
+            <div class="services-description">
+              <h1>Fast and Robust</h1>
+              <p>
+                We are contantly working on Mash Able and improve its performance too. Your definitely give higher rating to Mash Able for its performance.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.4s">
+            <div class="services-icon">
+              <img class="icon-3" src="{{ asset('assets_frontend/logos/icon3.png') }}" height="60" width="60" alt="Service" />
+            </div>
+            <div class="services-description">
+              <h1>FLAT UI-Interface</h1>
+              <p>
+                Mash able is first ever admin dashboard template which release in Bootstrap 4 framework. Intuitive feature rich design concept and color combination.
+              </p>
+            </div>
+          </div> --}}
         </div>
       </div>
     </div>
+  </div>
 
   <div class="flex-features" id="fortofolio">
     <div class="container nopadding">
