@@ -1,0 +1,43 @@
+# banners
+KATAPANDA
+Bekerja dengan Amanah, Bertanggung Jawab dan Creative.<br>Kami Hadir untuk Anda dalam Mambangun Sistem Bebasis Digital.
+banner.jpg
+
+# logos
+logo.png
+
+# Menus
+Beranda			INA		#main 			page-scroll
+Layanan			INA		#services 		page-scroll
+Portofolio		INA		#fortofolio 	page-scroll
+Testimoni		INA		#reviews 		page-scroll
+Tentang Kami	INA		#about 			page-scroll
+
+#service_pages
+Kami Siap Membantu dan Melayani Anda 
+Katapanda adalah perusahaan yang siap membantu Anda dalam membangun sistem berbasis digital. <br> (website, desktop app dan android app).
+INA
+
+#service_page_details
+Kaya akan Fitur
+Katapanda siap membangun sistem berbasis web, desktop dan android app dengan fitur yang cukup lengkap dan juga sesuai dengan kebutuhan anda. 
+icon1.png
+INA
+
+Cepat dan Aman
+Katapanda berusaha membuat sistem agar dapat selalu berjalan dengan baik dan juga berjalan dengan cepat serta menjaga sistem agar tetap aman. 
+icon2.png
+INA
+
+User Friendly
+Katapanda selalu mencoba untuk membuat sistem yang mudah digunakan dan dipahami oleh penggunanya.
+icon3.png
+INA
+
+# setting_languages
+INA		Bahasa Indonesia
+ENG		English
+
+#setting_parameters
+A1		INA 		Setting Bahasa dengan Bahasa Indonesia
+A2		ENG 		Setting Bahasa dengan Bahasa Inggris

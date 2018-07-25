@@ -12,11 +12,15 @@ use App\Frontend_Models\Menus;
 use App\Frontend_Models\Service_Pages;
 use App\Frontend_Models\Service_Page_Details;
 use App\Frontend_Models\Setting_Languages;
+use App\Frontend_Models\Testimony_Pages;
 
 class MainController extends Controller
 {
     public function index(Request $request)
     {
+		// init
+		$language = '';
+		
     	// Bahasa yang digunakan
     	$where  = ['active_boo' => TRUE];
         $languages = Setting_Languages::select('language_name_var')->limit(1)->where($where)->get();
@@ -42,7 +46,11 @@ class MainController extends Controller
 
         // Detail Menu Service / Layanan
     	$where  = ['active_boo' => TRUE, 'language_var' => $language];
-        $service_page_details = Service_Page_Details::where($where)->get();
+		$service_page_details = Service_Page_Details::where($where)->get();
+		
+		// Testimoni
+		$where  = ['active_boo' => TRUE];
+        $testimonies = Testimony_Pages::where($where)->get();
         
         return view('frontend_modules.index_frontend', compact(
         	'banners',
@@ -50,7 +58,8 @@ class MainController extends Controller
         	'list_menus',
         	'logos',
         	'service_pages',
-        	'service_page_details'
+			'service_page_details',
+			'testimonies'
         ));
     }
 }
