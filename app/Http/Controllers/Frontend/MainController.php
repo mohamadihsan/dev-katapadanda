@@ -68,7 +68,11 @@ class MainController extends Controller
 		
     	// Portofolio
     	$where  = ['active_boo' => TRUE, 'language_var' => $language];
-        $portofolios = Portofolio::where($where)->get();
+		$portofolios = Portofolio::where($where)->where('project_code_var', '=', 'S1')->orwhere('project_code_var', '=', 'S2')->get();
+		
+    	// List Portofolio
+    	$where  = ['active_boo' => TRUE, 'language_var' => $language];
+        $list_portofolios = Portofolio::where($where)->get();
 		
     	// Subcribe
     	$where  = ['active_boo' => TRUE, 'language_var' => $language];
@@ -88,6 +92,7 @@ class MainController extends Controller
 			'contacts',
 			'contact_details',
 			'portofolios',
+			'list_portofolios',
         	'list_menus',
 			'logos',
 			'logo_clients',

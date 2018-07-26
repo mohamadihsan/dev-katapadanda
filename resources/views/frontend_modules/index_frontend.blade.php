@@ -212,6 +212,25 @@
         </div>  
         
       @endforeach
+    
+    </div>
+    
+      <div class="flex-split">
+        <div class="f-right wow fadeInUp" data-wow-delay="0.2s">
+          <div class="right-content">
+            <h2>Daftar Project KATAPANDA</h2>
+            <p>
+              Berikut beberapa project sudah pernah dikerjakan oleh KATAPANDA, diantaranya :
+            </p>
+            <ul>
+              @foreach($list_portofolios as $list_portofolio)
+                <li><i class="ion-android-checkbox-outline"></i>{{ $list_portofolio->project_title_var }}</li>
+              @endforeach 
+            </ul>
+          </div>
+        </div>
+      </div>
+     
 
     <div class="testimonial-section" id="testimony">
       <div class="container">
@@ -247,7 +266,7 @@
       <div class="feature_huge text-center" id="team">
         <div class="container nopadding">
           <div class="col-md-12">
-            <img class="img-responsive wow fadeInUp" data-wow-delay="0.1s" src="{{ asset('assets_frontend/images/big_feature.png') }}" alt="" style="max-width:100%"/>
+            <img class="img-responsive wow fadeInUp" data-wow-delay="0.1s" src="{{ asset('assets_frontend/images/team/foto_utama.png') }}" alt="" style="max-width:100%"/>
           </div>
           <div class="feature_list">
 
